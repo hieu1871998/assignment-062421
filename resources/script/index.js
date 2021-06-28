@@ -133,7 +133,12 @@ function loadTasks() {
     var taskList = document.getElementById('taskList');
     var taskData = localStorage.getItem('tasks');
 
-    if (!taskData) {return false;}
+    if (!taskData) {
+        taskData = 
+        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Enter text into the input field to add items to your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the item to mark it as complete</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the "trash can" icon to remove the item from your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>';
+    }
     taskList.innerHTML = taskData;
 
     var task = taskList.getElementsByClassName('list-element');
