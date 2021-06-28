@@ -2,17 +2,20 @@
     font-family: 'FabricMDL2Icons';
     src: url(/resources/fonts/fabric-icons-88e88feb.woff) format("woff");
 }
-* {box-sizing: border-box;}
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    
+}
 html, body {
     height: 100%;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: auto;
 }
-body {
-    background: #dfedf9;
-}
+body {background: #dfedf9;}
 header {
     padding: 5px;
 }
@@ -38,6 +41,9 @@ input[type="text"]::before {
 .rounded-corners--2px {border-radius: 2px !important;}
 .rounded-corners--5px {border-radius: 5px !important;}
 .border {border: 1px solid #323130 !important;}
+#mainLayout {
+    overflow: auto;
+}
 .TextField {
     display: flex;
     width: 100%;
@@ -113,19 +119,23 @@ input[type="text"]::before {
 }
 .task-list {
     width: inherit;
+    height: 100%;
     list-style-type: none;
 }
 .task-list .list-element {
     cursor: pointer;
     width: 100%;
     margin-bottom: 5px;
-    padding: 10px;
+    padding: 10px 15px;
     font: 18px 'Segoe UI';
+    text-align: justify;
 }
+.task-list .list-element span {pointer-events: none;}
 .task-list .list-element__completed {background: rgba(160, 228, 154, 0.75);}
 .task-list .task-complete-button {
     cursor: pointer;
     z-index: 1;
+    margin-left: -45px;
     float: left;
     background: none;
     border: none;
@@ -144,16 +154,18 @@ input[type="text"]::before {
 .task-list .task-delete-button {
     cursor: pointer;
     z-index: 1;
-    float: right;
+    position: absolute;
+    right: -30px;
+    top: 10px;
     background: none;
     border: none;
     font-size: 16px;
-    opacity: 0.5;
+    border-radius: 50%;
+    color: #605e5c;
 }
 .task-list .task-delete-button:hover {
     color: #d83b01;
     font-weight: bold;
-    opacity: 1;
 }
 .task-list .task-delete-button i {
     display: inline-block;
