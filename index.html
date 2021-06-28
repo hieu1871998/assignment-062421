@@ -14,7 +14,7 @@
     <script src="resources/script/fabric.min.js"></script>
 </head>
 <body>
-    <div class="ms-Grid" dir="ltr">
+    <div id="mainLayout" class="ms-Grid" dir="ltr">
         <header id="header" class="ms-Grid-row">
             <div class="ms-Grid-col ms-sm4">
                 <span id="headerTitle" class="ms-fontSize-24 ms-fontWeight-bold ms-smOffset1">To Do</span>
@@ -58,9 +58,9 @@
             </div>
         </header>
         <div class="ms-Grid-row">
-            <form class="ms-Grid-col ms-sm8 ms-smPush2 TextField" onsubmit="addTask(); return false">
+            <form class="ms-Grid-col ms-sm8 ms-smPush2 TextField" onsubmit="addTask(); return false;">
                 <input id="inputText" class="TextField--field rounded-corners--5px acrylic-dark" type="text" placeholder="Add a task">  
-                <button class="TextField--button" onclick="addTask(); return false">
+                <button class="TextField--button" onclick="addTask(); return false;">
                     <span id="addButton">Add</span>
                 </button>         
             </form>
