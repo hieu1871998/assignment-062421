@@ -25,6 +25,7 @@ input[type="text"]::before {
 }
 #headerTitle {
     color: #323130;
+    overflow: hidden;
 }
 .acrylic {
     backdrop-filter: blur(10px);
@@ -129,6 +130,7 @@ input[type="text"]::before {
     padding: 10px 15px;
     font: 18px 'Segoe UI';
     text-align: justify;
+    transition: 0.2s;
 }
 .task-list .list-element span {pointer-events: none;}
 .task-list .list-element__completed {background: rgba(160, 228, 154, 0.75);}
@@ -143,6 +145,7 @@ input[type="text"]::before {
     font-size: 18px;
     pointer-events: none;
     opacity: 0;
+    transition: 0.2s;
 }
 .task-list .task-complete-button__completed {opacity: 1;} 
 .task-list .task-complete-button i {
@@ -162,6 +165,7 @@ input[type="text"]::before {
     font-size: 16px;
     border-radius: 50%;
     color: #605e5c;
+    transition: 0.2s;
 }
 .task-list .task-delete-button:hover {
     color: #d83b01;
