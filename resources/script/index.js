@@ -73,6 +73,7 @@ function addTask() {
 
     task.appendChild(cmpBtn);
     taskText.innerText = taskInput;
+    document.getElementById('inputText').value = '';
     task.classList.add('list-element', 'acrylic', 'rounded-corners--5px');
     task.appendChild(taskText);
     task.appendChild(delBtn);
@@ -80,11 +81,11 @@ function addTask() {
     
     delBtn.addEventListener('click', function (event) {
         var delBtn = event.target;
-        var tsk = delBtn.parentElement.parentElement.parentElement;
+        var tsk = delBtn.parentElement;
 
         tsk.remove();
         storeTask(taskList);
-    })
+    }, false);
 
     task.addEventListener('click', function (event) {
         var tsk = event.target;
@@ -95,7 +96,7 @@ function addTask() {
         tsk.classList.toggle('list-element__completed');
         tskCmpBtn[0].classList.toggle('task-complete-button__completed');
         storeTask(taskList);
-    })
+    }, false);
 
     storeTask(taskList);
 }
@@ -106,7 +107,7 @@ function completeButton() {
     var completeIcon = document.createElement('i');
     
     completeButton.className = 'task-complete-button';
-    completeIcon.className = 'ms-Icon ms-Icon--Completed';
+    completeIcon.className = 'ms-Icon ms-Icon--CompletedSolid';
     completeSpan.appendChild(completeIcon);
     completeButton.appendChild(completeSpan);
 
@@ -119,7 +120,7 @@ function deleteButton() {
     var deleteIcon = document.createElement('i');
 
     deleteButton.className = 'task-delete-button';
-    deleteIcon.className = 'ms-Icon ms-Icon--Clear';
+    deleteIcon.className = 'ms-Icon ms-Icon--Delete';
     deleteSpan.appendChild(deleteIcon);
     deleteButton.appendChild(deleteSpan)
     
@@ -141,22 +142,23 @@ function loadTasks() {
     for (var i = 0; i < task.length; i++) {
         delBtn[i].addEventListener('click', function (event) {
             var delBtn = event.target;
-            var tsk = delBtn.parentElement.parentElement.parentElement;
+            var tsk = delBtn.parentElement;
     
             tsk.remove();
             storeTask(taskList);
-        })
+        }, false);
     
         task[i].addEventListener('click', function (event) {
             var tsk = event.target;
             var tskCmpBtn = event.target.getElementsByClassName('task-complete-button');
     
+            
             if (tskCmpBtn[0] === undefined) {return false;}
     
             tsk.classList.toggle('list-element__completed');
             tskCmpBtn[0].classList.toggle('task-complete-button__completed');
             storeTask(taskList);
-        })
+        }, false);
     } 
 }
 
