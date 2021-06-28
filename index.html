@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="resources/css/index.css">
+    <link rel="stylesheet" href="resources/css/fabric.min.css">
+    <link rel="stylesheet" href="resources/css/fabric-icons.css">
+    <link rel="stylesheet" href="resources/css/fabric.components.min.css">
+    <link type="image/x-icon" rel="icon" href="favicon.ico">
+    <script src="resources/script/index.js"></script>
+    <script src="resources/script/fabric.min.js"></script>
+</head>
+<body>
+    <div class="ms-Grid" dir="ltr">
+        <header id="header" class="ms-Grid-row">
+            <div class="ms-Grid-col ms-sm4">
+                <span id="headerTitle" class="ms-fontSize-24 ms-fontWeight-bold ms-smOffset1">To Do</span>
+            </div>
+            <div id="contextualMenu" class="ms-Grid-col ms-sm6 ms-md3 ms-xl2 ms-smPush2 ms-mdPush5 ms-xlPush6">
+                <button id="themeButton" class="ms-Button border rounded-corners--2px">
+                    <span class="ms-Button-label ms-fontSize-s">Choose Theme</span>
+                </button>
+                <ul id="themeMenu" class="ms-ContextualMenu is-hidden">
+                    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--header">Images</li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" tabindex="1" href="resources/theme/image1.jpg" onclick="themeImage(this); return false;">Moutainous Road</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" tabindex="1" href="resources/theme/image2.jpg" onclick="themeImage(this); return false;">Sunset Valley</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" tabindex="1" href="resources/theme/image3.jpg" onclick="themeImage(this); return false;">Retro Planets</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" tabindex="1" href="resources/theme/image4.png" onclick="themeImage(this); return false;">Stygian Moon</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--divider"></li>
+                    <li class="ms-ContextualMenu-item ms-ContextualMenu-item--header">Solid Colors</li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" onclick="themeSolidColor('#2e5ea3','#dfedf9');">Ice</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" onclick="themeSolidColor('#a54228','#f9e8de');">Beige</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" onclick="themeSolidColor('#db635f','#f9e3e3');">Beet</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" onclick="themeSolidColor('#1e704d','#d5f1e5');">Mint</a>
+                    </li>
+                    <li class="ms-ContextualMenu-item">
+                        <a class="ms-ContextualMenu-link" onclick="themeSolidColor('#323130','#cdd4da');">Ghost</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <div class="ms-Grid-row">
+            <form class="ms-Grid-col ms-sm8 ms-smPush2 TextField" onsubmit="addTask(); return false">
+                <input id="inputText" class="TextField--field rounded-corners--5px acrylic-dark" type="text" placeholder="Add a task">  
+                <button class="TextField--button" onclick="addTask(); return false">
+                    <span id="addButton">Add</span>
+                </button>         
+            </form>
+        </div>
+        <div class="ms-Grid-row ms-Grid">
+            <div class="ms-Grid-row">
+                <ul id="taskList" class="ms-Grid-col ms-sm8 ms-smPush2 task-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

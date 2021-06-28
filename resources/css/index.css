@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'FabricMDL2Icons';
+    src: url(/resources/fonts/fabric-icons-88e88feb.woff) format("woff");
+}
+* {box-sizing: border-box;}
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    background: #dfedf9;
+}
+header {
+    padding: 5px;
+}
+input[type="text"]::before {
+    font-family: 'FabricMDL2Icons';
+    content: '\EDC3';
+}
+#headerTitle {
+    color: #323130;
+}
+.acrylic {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(255, 255, 255, 0.75);
+}
+.acrylic-dark {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(0, 0, 0, 0.5);
+}
+.rounded-corners--2px {border-radius: 2px !important;}
+.rounded-corners--5px {border-radius: 5px !important;}
+.border {border: 1px solid #323130 !important;}
+.TextField {
+    display: flex;
+    width: 100%;
+    height: 42px;
+    margin-top: 42px;
+    align-items: center;
+}
+.TextField .TextField--field {
+    width: 100%;
+    height: 42px;
+    padding-left: 16px;
+    padding-right: 100px;
+    font: 18px 'Segoe UI';
+    color: #ffffff;
+    border: transparent;
+}
+.TextField .TextField--field:focus {
+    border: none;
+    outline: none;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-blend-mode: exclusion;
+    background: rgba(0, 0, 0, 0.6);
+}
+.TextField .TextField--field:focus::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.TextField .TextField--field::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+.TextField .TextField--button {
+    cursor: pointer;
+    height: 42px;
+    margin-left: -65px;
+    padding: 5px 16px;
+    z-index: 1;
+    background: none;
+    border: none;
+    transition: all 0.5s;
+}
+.TextField .TextField--button:focus {
+    outline: 1px solid #ffffff;
+    border-radius: 5px;
+}
+.TextField .TextField--button span {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    color: #ffffff;
+    transition: 0.5s;
+    font: 18px 'Segoe UI';
+}
+.TextField .TextField--button span::before {
+    font-family: 'FabricMDL2Icons';
+    content: '\E710';
+    position: absolute;
+    top: 2px;
+    opacity: 0;
+    right: -25px;
+    transition: 0.5s;
+}
+.TextField .TextField--button:hover {
+    margin-left: -85px;
+    padding-right: 20px;
+}
+.TextField .TextField--button:hover:focus {
+    outline: none;
+    border: transparent;
+}
+.TextField .TextField--button:hover span::before {
+    opacity: 1;
+    right: -25px;
+}
+.task-list {
+    width: inherit;
+    list-style-type: none;
+}
+.task-list .list-element {
+    cursor: pointer;
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 10px;
+    font: 18px 'Segoe UI';
+}
+.task-list .list-element__completed {background: rgba(160, 228, 154, 0.75);}
+.task-list .task-complete-button {
+    cursor: pointer;
+    z-index: 1;
+    float: left;
+    background: none;
+    border: none;
+    color: #107c10;
+    font-size: 18px;
+    pointer-events: none;
+    opacity: 0;
+}
+.task-list .task-complete-button__completed {opacity: 1;} 
+.task-list .task-complete-button i {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+}
+.task-list .task-delete-button {
+    cursor: pointer;
+    z-index: 1;
+    float: right;
+    background: none;
+    border: none;
+    font-size: 16px;
+    opacity: 0.5;
+}
+.task-list .task-delete-button:hover {
+    color: #d83b01;
+    font-weight: bold;
+    opacity: 1;
+}
+.task-list .task-delete-button i {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    font-weight: bold;
+}
