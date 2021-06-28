@@ -82,7 +82,7 @@ function addTask() {
     task.appendChild(cmpBtn);
     taskText.innerText = taskInput;
     document.getElementById('inputText').value = '';
-    task.className = ('list-element acrylic rounded-corners--5px ms-motion-scaleDownIn');
+    task.className = ('list-element acrylic rounded-corners--5px ms-depth-4 ms-motion-scaleDownIn');
     task.appendChild(taskText);
     task.appendChild(delBtn);
     taskList.appendChild(task);
@@ -149,9 +149,9 @@ function loadTasks() {
 
     if (!taskData) {
         taskData = 
-        '<li class="list-element acrylic rounded-corners--5px ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Enter text into the input field to add items to your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
-        '<li class="list-element acrylic rounded-corners--5px ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the item to mark it as complete</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
-        '<li class="list-element acrylic rounded-corners-- ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the "trash can" icon to remove the item from your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>';
+        '<li class="list-element acrylic rounded-corners--5px ms-depth-4 ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Enter text into the input field to add items to your list &#8593;</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners--5px ms-depth-4 ms-motion-scaleDownIn list-element__completed"><button class="task-complete-button task-complete-button__completed"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the item to mark it as complete</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners--5px ms-depth-4 ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the "trash can" icon to remove the item from your list &#8594;</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>';
     }
     taskList.innerHTML = taskData;
 
