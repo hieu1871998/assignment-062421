@@ -74,7 +74,7 @@ function addTask() {
     task.appendChild(cmpBtn);
     taskText.innerText = taskInput;
     document.getElementById('inputText').value = '';
-    task.classList.add('list-element', 'acrylic', 'rounded-corners--5px');
+    task.className = ('list-element acrylic rounded-corners--5px ms-motion-scaleDownIn');
     task.appendChild(taskText);
     task.appendChild(delBtn);
     taskList.appendChild(task);
@@ -83,8 +83,14 @@ function addTask() {
         var delBtn = event.target;
         var tsk = delBtn.parentElement;
 
-        tsk.remove();
-        storeTask(taskList);
+        tsk.classList.remove('ms-motion-scaleDownIn');
+        tsk.classList.add('ms-motion-scaleDownOut');
+
+        setTimeout(function () {
+            tsk.remove();
+            storeTask(taskList);            
+        }, 200);
+        
     }, false);
 
     task.addEventListener('click', function (event) {
@@ -135,9 +141,9 @@ function loadTasks() {
 
     if (!taskData) {
         taskData = 
-        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Enter text into the input field to add items to your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
-        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the item to mark it as complete</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
-        '<li class="list-element acrylic rounded-corners--5px"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the "trash can" icon to remove the item from your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>';
+        '<li class="list-element acrylic rounded-corners--5px ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Enter text into the input field to add items to your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners--5px ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the item to mark it as complete</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>' +
+        '<li class="list-element acrylic rounded-corners-- ms-motion-scaleDownIn"><button class="task-complete-button"><span><i class="ms-Icon ms-Icon--CompletedSolid"></i></span></button><span>Click the "trash can" icon to remove the item from your list</span><button class="task-delete-button"><span><i class="ms-Icon ms-Icon--Delete"></i></span></button></li>';
     }
     taskList.innerHTML = taskData;
 
@@ -149,8 +155,13 @@ function loadTasks() {
             var delBtn = event.target;
             var tsk = delBtn.parentElement;
     
-            tsk.remove();
-            storeTask(taskList);
+            tsk.classList.remove('ms-motion-scaleDownIn');
+            tsk.classList.add('ms-motion-scaleDownOut');
+
+            setTimeout(function () {
+                tsk.remove();
+                storeTask(taskList);            
+            }, 200);
         }, false);
     
         task[i].addEventListener('click', function (event) {
