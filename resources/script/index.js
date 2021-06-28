@@ -14,15 +14,18 @@ function themeImage(image) {
     var body = document.body;
     var header = document.getElementById('header');
     var headerTitle = document.getElementById('headerTitle');
+    var themeColor = document.querySelector('meta[name="theme-color"]');
 
     body.style.background = 'url('+image.href+') center center / cover no-repeat';
     header.classList.add('acrylic', 'ms-depth-4');
     headerTitle.style.color = '#323130';
+    themeColor.setAttribute('content', '#323130')
 
     var themeData = {
         background: body.style.background,
         header: header.className,
         headerText: headerTitle.style.color,
+        themeColor: themeColor.getAttribute('content'),
     };
 
     storeTheme(themeData);
@@ -32,15 +35,18 @@ function themeSolidColor(txtColor, bgColor) {
     var body = document.body;
     var header = document.getElementById('header');
     var headerTitle = document.getElementById('headerTitle');
+    var themeColor = document.querySelector('meta[name="theme-color"]');
 
     body.style.background = bgColor;
     header.classList.remove('acrylic', 'ms-depth-4');
     headerTitle.style.color = txtColor;
+    themeColor.setAttribute('content', bgColor);
 
     var themeData = {
         background: body.style.background,
         header: header.className,
         headerText: headerTitle.style.color,
+        themeColor: themeColor.getAttribute('content'),
     };
 
     storeTheme(themeData);
@@ -53,12 +59,14 @@ function loadTheme() {
     var body = document.body;
     var header = document.getElementById('header');
     var headerTitle = document.getElementById('headerTitle');
+    var themeColor = document.querySelector('meta[name="theme-color"]');
 
     if (!theme) {return null}
 
     body.style.background = JSON.parse(theme).background;
     header.className = JSON.parse(theme).header;
     headerTitle.style.color = JSON.parse(theme).headerText;
+    themeColor.setAttribute('content', JSON.parse(theme).themeColor);
 }
 
 function addTask() {
